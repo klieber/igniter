@@ -4,7 +4,6 @@ import com.dsmhack.igniter.SpringContextConfiguration;
 import com.dsmhack.igniter.models.User;
 import com.dsmhack.igniter.services.IntegrationServicesRegistry;
 import com.dsmhack.igniter.services.TeamConfigurationService;
-import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;

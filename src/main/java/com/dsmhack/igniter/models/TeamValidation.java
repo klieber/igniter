@@ -1,6 +1,5 @@
 package com.dsmhack.igniter.models;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

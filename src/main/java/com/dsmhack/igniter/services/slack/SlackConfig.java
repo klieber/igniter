@@ -1,6 +1,5 @@
 package com.dsmhack.igniter.services.slack;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
