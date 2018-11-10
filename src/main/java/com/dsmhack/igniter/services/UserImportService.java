@@ -46,7 +46,7 @@ public class UserImportService {
 
     public User parseStringIntoUser(String userInfo) {
         String[] userParts = userInfo.split(",");
-        User parsedUser = new User(userParts[0], userParts[1], userParts[2], userParts[20]);
+        User parsedUser = new User(userParts[0], userParts[1], userParts[2], userParts[3]);
         return parsedUser;
     }
 }
