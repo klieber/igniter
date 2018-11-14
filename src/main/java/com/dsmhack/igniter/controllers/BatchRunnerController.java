@@ -1,4 +1,4 @@
-package com.dsmhack.igniter.controlers;
+package com.dsmhack.igniter.controllers;
 
 import com.dsmhack.igniter.BatchRunner;
 import org.springframework.beans.factory.annotation.Autowired;

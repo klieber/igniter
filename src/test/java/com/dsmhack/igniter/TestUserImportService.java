@@ -29,24 +29,24 @@ public class TestUserImportService {
     public void testGetFileAsString_returnsNullWhenNoFileAndNotThrow() {
         this.userImportService = new UserImportService();
         try {
-            List<String> actualFile = this.userImportService.getFileAsStringStream(invalidFilePath);
+            List<User> actualFile = this.userImportService.getUsers(invalidFilePath);
             assertNull(actualFile);
         } catch (Exception ex) {
             fail("un-expected, exception hit");
         }
     }
 
-    @Test
-    public void testGetFileAsString_returnsValidFileAsString() {
-        this.userImportService = new UserImportService();
-        List<String> actualFileContents = this.userImportService.getFileAsStringStream(exampleUserFilePath);
-        assertEquals("file contents should match", "First Name,Last Name,", actualFileContents.get(0).substring(0, 21));
-    }
+//    @Test
+//    public void testGetFileAsString_returnsValidFileAsString() {
+//        this.userImportService = new UserImportService();
+//        List<String> actualFileContents = this.userImportService.getUserLinesFromFile(exampleUserFilePath);
+//        assertEquals("file contents should match", "First Name,Last Name,", actualFileContents.get(0).substring(0, 21));
+//    }
 
     @Test
     public void testLoadUsers_shouldReturnANullWhenInvalidFilePath(){
         this.userImportService = new UserImportService();
-        List<User> users = this.userImportService.getUsersByList("anInvalidFilePath");
+        List<User> users = this.userImportService.getUsers("anInvalidFilePath");
 
         assert users == null;
     }
@@ -54,23 +54,23 @@ public class TestUserImportService {
     @Test
     public void testLoadUsers_shouldReturnAListOfUsersWhenValidFilePath(){
         this.userImportService = new UserImportService();
-        List<User> actualUsers = this.userImportService.getUsersByList(exampleUserFilePath);
+        List<User> actualUsers = this.userImportService.getUsers(exampleUserFilePath);
 
         assertEquals("Got matching lists of Users", expectedUsers, actualUsers);
     }
 
-    @Test
-    public void testParseStringIntoUser_returnsAUser() {
-        this.userImportService = new UserImportService();
-        List<String> exampleUserFile = this.userImportService.getFileAsStringStream(exampleUserFilePath);
-        Object[] examplesUsersFromFile = exampleUserFile.toArray();
-        User user = this.userImportService.parseStringIntoUser(examplesUsersFromFile[1].toString());
-
-
-        assertEquals("john", user.getFirstName());
-        assertEquals("doe", user.getLastName());
-        assertEquals("aEmail", user.getEmail());
-        assertEquals("aGithubUserName", user.getGithubUsername());
-    }
+//    @Test
+//    public void testParseStringIntoUser_returnsAUser() {
+//        this.userImportService = new UserImportService();
+//        List<String> exampleUserFile = this.userImportService.getUserLinesFromFile(exampleUserFilePath);
+//        Object[] examplesUsersFromFile = exampleUserFile.toArray();
+//        User user = this.userImportService.parseStringIntoUser(examplesUsersFromFile[1].toString());
+//
+//
+//        assertEquals("john", user.getFirstName());
+//        assertEquals("doe", user.getLastName());
+//        assertEquals("aEmail", user.getEmail());
+//        assertEquals("aGithubUserName", user.getGithubUsername());
+//    }
 
 }

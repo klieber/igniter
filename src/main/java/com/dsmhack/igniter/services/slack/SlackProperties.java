@@ -1,4 +1,4 @@
-package com.dsmhack.igniter.services.github;
+package com.dsmhack.igniter.services.slack;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,11 +9,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class GitHubConfig {
-    private String oAuthKey;
+public class SlackProperties {
+    private boolean enabled;
     private String clientId;
-    private String secretKey;
-    private String orgName;
-    private String prefix;
-
+    private String clientSecret;
+    private String oauthKey;
 }

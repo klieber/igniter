@@ -5,7 +5,7 @@ Feature: A new team is created in slack
 
   Scenario: Admin adds a new team that has not previously been created
     When The Admin creates the team "Team_1"
-    Then The Slack Channel of "Team_1" exists
+    Then The Slack Channel of "Team_1" is created
 
 
   Scenario: Admin adds a new user to a team
@@ -15,5 +15,6 @@ Feature: A new team is created in slack
       | lastName | firstName | email                 | githubUsername |
       | anderson | josh      | joshua@kickercost.com | kickercost     |
     And The staged user is added to the team "Team_1"
+    Then the user is a member of "Team_1" slack channel
 #    When The Admin adds the user with the email of "anEmail" to the team "Team_1"
 #    Then the user with the email of "anEmail" should be present in the slack channel "Team_1"

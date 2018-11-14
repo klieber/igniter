@@ -1,16 +1,10 @@
 Feature: A config file is loaded and data is supplied
 
-  Scenario: The service should load the default user.csv
-    When the service is started it loads the default config file of "exampleUser.csv"
-
-  Scenario: the list of users is returned
-    Given The following users are created
-      | lastName | firstName | email   | githubUsername  |
-      | doe      | john      | anEmail | aGithubUserName |
-    When the getUsers is called the following user exists
-      | lastName | firstName | email   | githubUsername  |
-      | doe      | john      | anEmail | aGithubUserName |
-
-
-  Scenario: it should return the "exampleUser.csv" as a string
-    When the getFileAsString is called with the following path "exampleUser.csv"
+  Scenario: Load users from a file
+    Given a users file named "exampleUser.csv" exists
+    When I get a list of users from the "exampleUser.csv" file
+    Then I should have a list containing the following users
+      | lastName | firstName   | email                 | githubUsername    |
+      | doe      | john        | anEmail               | aGithubUserName   |
+      | Rolek    | Stewie      | stewie@email.com      | stewieGithub      |
+      | Rolek    | LilSquiggle | lilsquiggle@email.com | lilsquiggleGithub |
