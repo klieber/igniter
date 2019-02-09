@@ -55,11 +55,12 @@ public class EventBriteUserImportService extends AbstractCsvUserImportService {
 
   @Override
   protected User createUser(CSVRecord record) {
-    User user = new User();
-    user.setFirstName(record.get(Headers.FIRST_NAME));
-    user.setLastName(record.get(Headers.LAST_NAME));
-    user.setEmail(record.get(Headers.EMAIL));
-    user.setGithubUsername(record.get(Headers.GITHUB_USERNAME));
-    return user;
+    return User.builder()
+        .firstName(record.get(Headers.FIRST_NAME))
+        .lastName(record.get(Headers.LAST_NAME))
+        .email(record.get(Headers.EMAIL))
+        .githubUsername(record.get(Headers.GITHUB_USERNAME))
+        .slackEmail(record.get(Headers.SLACK_INVITE_EMAIL))
+        .build();
   }
 }

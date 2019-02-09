@@ -3,25 +3,17 @@ package com.dsmhack.igniter.models;
 import lombok.*;
 
 import java.util.List;
-import java.util.Objects;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode
-@Data
+@Value
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class User {
-    private String lastName;
-    private String firstName;
-    private String email;
-    private String githubUsername;
-    private List<Team> teams;
+    private final String lastName;
+    private final String firstName;
+    private final String email;
+    private final String slackEmail;
+    private final String githubUsername;
 
-    public User(String firstName, String lastName, String email, String githubUsername) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.githubUsername = githubUsername;
-    }
+    @Singular
+    private List<Team> teams;
 }

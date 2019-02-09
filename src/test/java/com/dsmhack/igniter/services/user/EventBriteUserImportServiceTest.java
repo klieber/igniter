@@ -21,9 +21,30 @@ public class EventBriteUserImportServiceTest {
     @Before
     public void before() {
         expectedUsers = new ArrayList<User>();
-        expectedUsers.add(new User("john", "doe", "aEmail", "aGithubUserName"));
-        expectedUsers.add(new User("Stewie", "Rolek", "stewie@email.com", "stewieGithub"));
-        expectedUsers.add(new User("LilSquiggle", "Rolek", "lilsquiggle@email.com", "lilsquiggleGithub"));
+        expectedUsers.add(
+            User.builder()
+                .firstName("john")
+                .lastName("doe")
+                .email("aEmail")
+                .githubUsername("aGithubUserName")
+                .build()
+        );
+        expectedUsers.add(
+            User.builder()
+                .firstName("Stewie")
+                .lastName("Rolek")
+                .email("stewie@email.com")
+                .githubUsername("stewieGithub")
+                .build()
+        );
+        expectedUsers.add(
+            User.builder()
+                .firstName("LilSquiggle")
+                .lastName("Rolek")
+                .email("lilsquiggle@email.com")
+                .githubUsername("lilsquiggleGithub")
+                .build()
+        );
         userImportService = new EventBriteUserImportService();
     }
 
