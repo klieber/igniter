@@ -4,6 +4,7 @@ import com.dsmhack.igniter.models.User;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Service
 public class EventBriteUserImportService extends AbstractCsvUserImportService {
@@ -58,9 +59,26 @@ public class EventBriteUserImportService extends AbstractCsvUserImportService {
     return User.builder()
         .firstName(record.get(Headers.FIRST_NAME))
         .lastName(record.get(Headers.LAST_NAME))
-        .email(record.get(Headers.EMAIL))
         .githubUsername(record.get(Headers.GITHUB_USERNAME))
         .slackEmail(record.get(Headers.SLACK_INVITE_EMAIL))
         .build();
+  }
+
+  private String getSlackEmail(CSVRecord record) {
+    String email = record.get(Headers.SLACK_INVITE_EMAIL);
+
+    if (StringUtils.isEmpty(email)) {
+      email = record.get(Headers.SLACK_EMAIL);
+    }
+
+    if (StringUtils.isEmpty(email)) {
+      email = record.get(Headers.EVENT_EMAIL);
+    }
+
+    if (StringUtils.isEmpty(email)) {
+      email = record.get(Headers.EMAIL);
+    }
+
+    return email;
   }
 }

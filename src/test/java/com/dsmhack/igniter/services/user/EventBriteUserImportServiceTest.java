@@ -25,7 +25,7 @@ public class EventBriteUserImportServiceTest {
             User.builder()
                 .firstName("john")
                 .lastName("doe")
-                .email("aEmail")
+                .slackEmail("aEmail")
                 .githubUsername("aGithubUserName")
                 .build()
         );
@@ -33,7 +33,7 @@ public class EventBriteUserImportServiceTest {
             User.builder()
                 .firstName("Stewie")
                 .lastName("Rolek")
-                .email("stewie@email.com")
+                .slackEmail("stewie@email.com")
                 .githubUsername("stewieGithub")
                 .build()
         );
@@ -41,7 +41,7 @@ public class EventBriteUserImportServiceTest {
             User.builder()
                 .firstName("LilSquiggle")
                 .lastName("Rolek")
-                .email("lilsquiggle@email.com")
+                .slackEmail("lilsquiggle@email.com")
                 .githubUsername("lilsquiggleGithub")
                 .build()
         );
@@ -60,7 +60,7 @@ public class EventBriteUserImportServiceTest {
 
         assertEquals("john", user.getFirstName());
         assertEquals("doe", user.getLastName());
-        assertEquals("aEmail", user.getEmail());
+        assertEquals("aEmail", user.getSlackEmail());
         assertEquals("aGithubUserName", user.getGithubUsername());
     }
 

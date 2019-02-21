@@ -1,21 +1,17 @@
 package com.dsmhack.igniter;
 
+import com.dsmhack.igniter.services.user.UserFormat;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
-
-import java.util.List;
+import org.springframework.stereotype.Component;
 
 @Getter
 @Setter
-@Configuration
+@Component
 @ConfigurationProperties(prefix = "igniter")
 public class IgniterProperties {
 
-  private List<String> activeIntegrations;
+  private UserFormat userFormat;
 
-  public boolean isActiveIntegration(String name) {
-    return this.activeIntegrations.contains(name);
-  }
 }

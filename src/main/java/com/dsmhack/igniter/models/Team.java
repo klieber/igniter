@@ -2,11 +2,15 @@ package com.dsmhack.igniter.models;
 
 import lombok.*;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode
-@Setter
-@Getter
+import java.util.List;
+
+@Value
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Team {
-    String name;
+
+  private final String name;
+
+  @Singular
+  private final List<User> users;
 }

@@ -15,13 +15,13 @@ public class TestUser {
     User actualUser = User.builder()
         .firstName(firstName)
         .lastName(lastName)
-        .email(email)
+        .slackEmail(email)
         .githubUsername(githubUsername)
         .build();
 
     assertEquals(actualUser.getFirstName(), firstName);
     assertEquals(actualUser.getLastName(), lastName);
-    assertEquals(actualUser.getEmail(), email);
+    assertEquals(actualUser.getSlackEmail(), email);
     assertEquals(actualUser.getGithubUsername(), githubUsername);
   }
 

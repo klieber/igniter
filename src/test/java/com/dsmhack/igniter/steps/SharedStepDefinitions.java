@@ -28,7 +28,7 @@ public class SharedStepDefinitions extends SpringContextConfiguration {
         teamConfigurationService.createTeam(teamName);
         User user = User.builder()
             .githubUsername("Kickercost")
-            .email("joshua@kickercost.com")
+            .slackEmail("joshua@kickercost.com")
             .build();
         teamConfigurationService.addUserToTeam(teamName, user);
     }
@@ -52,13 +52,13 @@ public class SharedStepDefinitions extends SpringContextConfiguration {
 
     @Given("^The integration service \"([^\"]*)\" is enabled$")
     public void theIntegrationServiceIsEnabled(String integrationServiceName) throws Throwable {
-        integrationServicesRegistry.activateIntegrationService(integrationServiceName);
+        //integrationServicesRegistry.activateIntegrationService(integrationServiceName);
     }
 
     @Then("^The active integration services contain \"([^\"]*)\"$")
     public void theOnlyActiveIntegrationServiceIs(String integrationServiceName) throws Throwable {
-        assertTrue( integrationServicesRegistry.getActiveIntegrationServices().stream().anyMatch(
-            integrationService -> integrationService.getIntegrationServiceName().equals(integrationServiceName)
+        assertTrue( integrationServicesRegistry.getIntegrations().stream().anyMatch(
+            integrationService -> integrationService.getIntegrationName().equals(integrationServiceName)
         ));
     }
 

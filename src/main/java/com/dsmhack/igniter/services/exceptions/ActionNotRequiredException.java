@@ -1,7 +1,9 @@
 package com.dsmhack.igniter.services.exceptions;
 
-public class ActionNotRequiredException extends Throwable {
-    public ActionNotRequiredException(String format) {
-        super(format);
-    }
+public class ActionNotRequiredException extends IntegrationServiceException {
+
+  public ActionNotRequiredException(String message) {
+    super(message);
+  }
+
 }
